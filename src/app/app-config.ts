@@ -20,6 +20,7 @@ export class AppConfig {
     public apiProtocol: string;
     public apiHostName: string;
     // public baseApiPath: string;
+    public url: string;
     public baseApiPath1: string;
     public baseApiPath2: string;
     public baseApiPath3: string;
@@ -53,15 +54,17 @@ export class AppConfig {
         //services name - api-service-one.default.local
         //service name2
 
-        this.baseApiPath1 = "http://a00714cbfe34411e89c0602c6d493a4a-1344292358.us-east-1.elb.amazonaws.com:";
-        this.baseApiPath2 = "http://api-service-one:";
-        this.baseApiPath3 = "http://api-service-one:";
-        this.baseApiPath4 = "http://api-service-one:";
+        this.url = window.location.origin;
+        this.url = this.url + ":";
+        this.baseApiPath1 = this.url;
+        this.baseApiPath2 = this.url;
+        this.baseApiPath3 = this.url;
+        this.baseApiPath4 = this.url;
         
         this.apiPort1 = "80";
-        this.apiPort2 = "4858";
-        this.apiPort3 = "4858";
-        this.apiPort4 = "4858";
+        this.apiPort2 = "80";
+        this.apiPort3 = "80";
+        this.apiPort4 = "80";
         
         [
             this.APIPath1, this.APIPath2, this.APIPath3, this.APIPath4
