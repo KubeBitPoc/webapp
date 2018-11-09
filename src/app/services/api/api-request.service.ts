@@ -11,7 +11,7 @@ import { DebugContext } from '@angular/core/src/view';
 @Injectable()
 export class ApiRequestService {
     apiPath:string = this.appConfig.APIPath1;
-    url:string = "http://a00714cbfe34411e89c0602c6d493a4a-1344292358.us-east-1.elb.amazonaws.com:80"
+    //url:string = "http://a00714cbfe34411e89c0602c6d493a4a-1344292358.us-east-1.elb.amazonaws.com:80"
     constructor(
         private appConfig:AppConfig,
         private http: HttpClient,
@@ -35,16 +35,16 @@ export class ApiRequestService {
 
     get(url:string, urlParams?:HttpParams):Observable<any>{       
         let me = this;
-        // if (url.includes("order")) {
-        //     this.apiPath = this.appConfig.APIPath1;
-        // } else if (url.includes("product")) {
-        //     this.apiPath = this.appConfig.APIPath2;
-        // } else if (url.includes("customer")) {
-        //     this.apiPath = this.appConfig.APIPath3;
-        // } else if (url.includes("employee")) {
-        //     this.apiPath = this.appConfig.APIPath4;
-        // }
-        // console.log(this.apiPath);        
+         if (url.includes("order")) {
+             this.apiPath = this.appConfig.APIPath1;
+         } else if (url.includes("product")) {
+             this.apiPath = this.appConfig.APIPath2;
+         } else if (url.includes("customer")) {
+             this.apiPath = this.appConfig.APIPath3;
+         } else if (url.includes("employee")) {
+             this.apiPath = this.appConfig.APIPath4;
+         }
+         console.log(this.apiPath);        
         return this.http.get(this.apiPath + url)
             .catch(function(error:any){
                 console.log("Some error in catch");
